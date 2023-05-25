@@ -5,58 +5,69 @@
           </div>
         </div>
 
-        <div class="row mt-3">
-          <div class="col-12 col-sm-1 col-lg-1"></div>
-          <div class="col-12 col-sm-3 col-lg-3 mb-3">            
+        <div class="row">
+          <div class="col-12 col-sm-4 col-lg-4 mb-3">            
             <a class="navbar-brand logoRodape" href="#">
-              <img src="<?= BASE_IMG ?>marcas/marca-ouro-verde-negativa.png" 
-                   alt = "Marca do Ouro Verde Muncks e Guindastes. A marca é uma garra dourada segurando uma caixa dourada e abaixo as escritas Ouro Verde em verde e mais abaixo escrito Muncks e Guindastes"
-                   class = "img-fluid"
+              <img src="<?= BASE_IMG ?>marcas/estacao_p.png" 
+                   class = "img-fluid" style="200px"
               />
             </a>
           </div>
-          <div class="col-12 col-sm-3 col-lg-3 mb-3 branco m-auto">
-            <h5 class=" mb-2">INÍCIO</h5>
+
+          <div class="col-12 col-sm-4 col-lg-4 mb-3 branco">
+            <h5 class="mb-2">INÍCIO</h5>
 
               <ul class="nav flex-column negrito mb-3">
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= BASE ?>">Início</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= BASE ?>#sobre">Quem somos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= BASE ?>#servicos">Seriços</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= BASE ?>#guindastes">Locação de muncks/guindastes </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= BASE ?>#mensagem">Contato</a>
-                </li>
+              <li class="nav-item">
+                        <a class="nav-link active"href="#inicio">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#SobreEstacaoP">A Estação</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#Consorcio">Consórcio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#Seguros">Seguros</a>
+                      </li>                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="#Blog">Blog</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#Contato">Contato</a>
+                      </li>
               </ul>
           </div>
 
-          <div class="col-12 col-sm-3 col-lg-3 mb-4 branco m-auto">
-            <h5 class=" mb-2">ENDEREÇO</h5>
+          <div class="col-12 col-sm-4 col-lg-3 mb-4 branco">
+            <h5 class=" mb-2 negrito">Onde estamos</h5>
             <p class = "mb-4 f-14">
               <span class = "">
-                Rua Waldomiro de Souza, 63<br />
-                Vila Industrial, Dourados - MS.
+              Cornelia Cersozimo de Souza, 1185
+              Jardim Climax - Dourados-MS<br>
+              79820-035
               </span>
             </p>
 
-            <h5 class=" mb-2">FALE COM A GENTE</h5>
+            <h5 class=" mb-2 negrito">Horários</h5>
             <p class = "mb-4 f-14">
               <span class = "">
-                (67) 3424.2276 | (67) 3424.3088<br />
-                Lademar: 67 99224.3236<br />
-                contato@ouroverdeguindastes.com.br<br />
+                Das 7h30 às 17:30
               </span>
             </p>
+
+            <h5 class=" mb-2 negrito">Telefones</h5>
+            <p class = "mb-4 f-14">
+              <span class = "">
+                (67) 3426-3320<br>
+                (67)99981-4321
+              </span>
+            </p>
+
           </div>
-          <div class="col-12 col-sm-1 col-lg-1"></div>
+
         </div>
+
       </div>
 
       <div class="container-fluid f-branco">
@@ -67,3 +78,14 @@
         </div>
       </div>
     </footer>
+
+    <div class="contato-fixo para-pc">
+      <a href="whatsapp.com" class="m-2">
+        <img src="<?= BASE_IMG ?>extra/fale_whatsapp.png" alt="" width="230px" title = "Conversar">
+      </a>
+    </div>
+    <div class="contato-fixo para-mob">
+      <a href="whatsapp.com" class="m-2">
+        <img src="<?= BASE_IMG ?>extra/fale_whatsapp_2.png" alt="" width="50px" title = "Conversar">
+      </a>
+    </div>

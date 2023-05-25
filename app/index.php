@@ -1,28 +1,28 @@
 <?php
-  include_once ('connection/connection.php');
+  //include_once ('connection/connection.php');
 ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
 <?php
   
-  $seleciona = "SELECT * FROM seo";
-    $consulta = $conexao -> prepare($seleciona);
-    $consulta -> execute();
+  // $seleciona = "SELECT * FROM seo";
+  //   $consulta = $conexao -> prepare($seleciona);
+  //   $consulta -> execute();
 
-      if(($consulta) AND ($consulta -> rowCount () != 0)){
-          while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
+  //     if(($consulta) AND ($consulta -> rowCount () != 0)){
+  //         while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
 
-            $tituloSeo = $registo['titulo'];
-            $descricaoSeo = $registo['descricao'];
-            $palavrasSeo = $registo['palavras_chave'];
+  //           $tituloSeo = $registo['titulo'];
+  //           $descricaoSeo = $registo['descricao'];
+  //           $palavrasSeo = $registo['palavras_chave'];
 
-          }
-      }
+  //         }
+  //     }
 
 ?>
 
-  <title><?= $tituloSeo ?></title>
+  <title>Estação P - Consórcio e investimento </title>
   <meta charset="UTF-8">
   <meta name="viewport"              content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,16 +33,16 @@
 
 
   <meta property="og:locale"       content="pt_BR">
-  <meta property="og:site_name"    content="Ouro Verde">
+  <meta property="og:site_name"    content="Estação P - Consórcio e investimento ">
   <meta property="og:url"          content="<?= BASE ?>" />
   <meta property="og:type"         content="website" />
-  <meta property="og:title"        content="<?= $tituloSeo ?>" />
-  <meta property="og:description"  content="<?= $descricaoSeo ?>" />
-  <meta property="og:image"        content="<?= BASE_IMG ?>marcas/logo-fatcred.png" />
+  <meta property="og:title"        content="" />
+  <meta property="og:description"  content="" />
+  <meta property="og:image"        content="<?= BASE_IMG ?>marcas/estacao_p.png" />
 
 
   <link rel="canonical" href="<?= BASE ?>">
-  <link rel="icon" href="<?= BASE_IMG ?>marcas/favicon.png">
+  <link rel="icon" href="<?= BASE_IMG ?>marcas/estacao_p_icone.png">
   <link rel="stylesheet" href="<?= BASE_CSS ?>bootstrap.min.css">
   <link rel="stylesheet" href="<?= BASE_CSS ?>global.min.css">  
   <link rel="stylesheet" href="<?= BASE_CSS ?>fg.min.css">  
@@ -59,18 +59,38 @@
   <?php require "components/header.php"; ?>
 
       <!-- body -->
-          <!-- === Apresentação === -->
-          <section id = "apresentacao" class = "">
+
+ <!-- slide ---------------------------------------->
+<section class="slide">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-sm-5 col-lg-5 p-3">
+        <H1 class="display-3 negrito p-5 cor-princ"> 
+        Uma aquisição, 
+        um investimento. 
+        </H1>
+        <p class="p-5 pt-1">
+          <a href="" class="botao-site botao-terc">Saiba mais</a>
+        </p>
+      </div>
+      <div class="col-12 col-sm-7 col-lg-7 p-3 d-flex align-items-center">
+            <img src="<?= BASE_IMG ?>slide/slide_1.png" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+          <!-- === Apresentação com bd === -->
+          <!-- <section id = "apresentacao" class = "">
             <div class="owl-carousel owl-theme">
 
   <?php
-        $seleciona = "SELECT * FROM slides_simples WHERE status = 'publicado' ";
-        $consulta = $conexao -> prepare($seleciona);
-        $consulta -> execute();
+        // $seleciona = "SELECT * FROM slides_simples WHERE status = 'publicado' ";
+        // $consulta = $conexao -> prepare($seleciona);
+        // $consulta -> execute();
 
-          if(($consulta) AND ($consulta -> rowCount () != 0)){
+        //   if(($consulta) AND ($consulta -> rowCount () != 0)){
 
-              while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
+        //       while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
   ?>
 
              <div class="item m-auto">                
@@ -119,55 +139,324 @@
                           </div>
                         </div>
               </div> -->
-<?php }} ?>
-            </div>                                
+<?php //}} ?>
+            <!-- </div>                                
             <div class = " owl-theme MB-5">
               <div class="owl-controls"><div class="custom-nav owl-nav"></div></div>
             </div>
-          </section>
+          </section> -->
 
-<!-- quem somos -------->
-<section class="f-branco pt-5 pb-5" id ="sobre">
+<!-- quem somos ---------------------------------------->
+<section class="f-branco pt-5 pb-5 sobre" id ="SobreEstacaoP">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12 col-sm-8 col-lg-5 mb-3 pt-5 pb-5">
+        <H1 class="display-2 negrito cor-princ mt-5">Quem somos</H1>
+        <p class="p-4">
+        A Estação P possui Planejamento Estratégico 
+        e definiu claramente uma metodologia de trabalho,
+        com enfoque principal na área administrativa. 
+        Optou por realizar uma administração simples, 
+        enxuta e transparente, priorizando sempre um 
+        melhor atendimento aos consumidores 
+        consorciados e o estrito cumprimento dos
+        normativos oficiais e dos contratos firmados
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- consorcio ---------------------------------------->
+<section class="f-branco pt-5 pb-5 consorcio" id ="Consorcio">
+  <div class="container pt-5 pb-5">
+    <div class="row mt-4">
+      <div class="col-12 col-sm-12 col-lg-12 mb-3 pt-5 pb-5">
+      <H1 class="display-5 negrito cor-princ centro mb-5"> Modalidades de consórcio da Estação</H1>
+
+          <div class="row mt-3">
+            <div class="col-12 col-sm-6 col-lg-3">
+              
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title centro f-terc branco">imóveis </h5>
+                      <p class="card-text f-20 negrito cinza-5 centro">
+                      <span class="mb-4">
+                        Sua casa, 
+                        como você
+                        planejou. <br>
+                      </span>  
+                      
+                      <span class="preto f-26 negrito mb-4">
+                        Crédito de<br>
+                        R$ 125.000,00<br>
+                      </span>
+                      <span class="cinza-5 negrito f-20">
+                        Parcelas a partir de<br>
+                          <span class="cor-terc">R$ 718,75  por mês</span>
+                      </span>
+                      </p>
+                    </div>
+                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/imoveis.jpg)"></div>
+                  </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title centro f-terc branco">Automóveis </h5>
+                      <p class="card-text f-20 negrito cinza-5 centro">
+                      <span class="mb-4">
+                        Acelera a conquista do seu sonho <br>
+                      </span>  
+                      
+                      <span class="preto f-26 negrito mb-4">
+                        Crédito de<br>
+                        R$ 125.000,00<br>
+                      </span>
+                      <span class="cinza-5 negrito f-20">
+                        Parcelas a partir de<br>
+                          <span class="cor-terc">R$ 718,75  por mês</span>
+                      </span>
+                      </p>
+                    </div>
+                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/carros.jpg)"></div>
+                  </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title centro f-terc branco">Motocicletas </h5>
+                      <p class="card-text f-20 negrito cinza-5 centro">
+                      <span class="mb-4">
+                        Para suas aventuras do dia-a-dia <br>
+                      </span>  
+                      
+                      <span class="preto f-26 negrito mb-4">
+                        Crédito de<br>
+                        R$ 125.000,00<br>
+                      </span>
+                      <span class="cinza-5 negrito f-20">
+                        Parcelas a partir de<br>
+                          <span class="cor-terc">R$ 718,75  por mês</span>
+                      </span>
+                      </p>
+                    </div>
+                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/moto.jpg)"></div>
+                  </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title centro f-terc branco">Motocicletas </h5>
+                      <p class="card-text f-20 negrito cinza-5 centro">
+                      <span class="mb-4">
+                        Para suas aventuras do dia-a-dia <br>
+                      </span>  
+                      
+                      <span class="preto f-26 negrito mb-4">
+                        Crédito de<br>
+                        R$ 125.000,00<br>
+                      </span>
+                      <span class="cinza-5 negrito f-20">
+                        Parcelas a partir de<br>
+                          <span class="cor-terc">R$ 718,75  por mês</span>
+                      </span>
+                      </p>
+                    </div>
+                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/cozinha.jpg)"></div>
+                  </div>
+
+            </div>
+          </div>
+
+          <div class="row mt-5 mb-3">
+            <div class="col-12 col-sm-12 col-lg-4 m-auto centro ">
+              <a href="#Contato" class ="botao-site botao-terc botao-medio">Faça uma simulação</a>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- motivos ---------------------------------------->
+<section class="f-branco pt-5 pb-5 motivos" id ="Seguros">
+  <div class="container pt-5 center">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-lg-12 mb-3 pt-5 pb-5 ">
+        <H1 class="display-5 negrito cor-princ centro mb-4 "> 
+          Por que adquirir um consórcio é
+          um <span class="cor-terc">ótimo negócio para você?</span> 
+        </H1>
+
+        <div class="row mt-5 centro itens-motivos">
+          <div class="col col-sm-6 col-lg-4 p-4 mb-1">
+                <img src="<?=  BASE_IMG ?>extra/economize_mais.png" alt="" class="mb-3" style = "width: 100px">
+                <h5 class="mb-3 cor-princ">
+                Economize Mais
+
+                </h5>
+                <p class="mb-3">
+                Com o consórcio você 
+foge dos juros abusivos 
+do  financiamento, 
+economizando 10x mais.
+Você tem apenas
+o custo administrativo!
+                </p>
+          </div>
+
+          <div class="col col-sm-6 col-lg-4 p-4 mb-1">
+                <img src="<?=  BASE_IMG ?>extra/compre_avista.png" alt="" class="mb-3" style = "width: 100px">
+                <h5 class="mb-3 cor-princ">
+                Compre à Vista
+
+                </h5>
+                <p class="mb-3">
+                Ao ser contemplado você tem
+o poder de compra à vista: 
+obtenha grandes descontos
+ou tenha facilidade de 
+negociação do bem com 
+pagamento imediato.
+                </p>
+          </div>
+
+          <div class="col col-sm-6 col-lg-4 p-4 mb-1">
+                <img src="<?=  BASE_IMG ?>extra/acelere_seu_credito.png" alt="" class="mb-3" style = "width: 100px">
+                <h5 class="mb-3 cor-princ">
+                Acelere seu Crédito
+
+                </h5>
+                <p class="mb-3">
+                Com a assessoria Estação P, 
+você tem a chance de ofertar 
+lance em grupos estratégicos e 
+acelerar a liberação do crédito, 
+sem precisar aguardar 
+a sorte chegar até você!
+                </p>
+          </div>
+
+          <div class="col col-sm-12 col-lg-5 p-4  m-auto mb-1 ">
+                <img src="<?=  BASE_IMG ?>extra/realize_seu_sonho.png" alt="" class="mb-3" style = "width: 100px">
+                <h5 class="mb-3 cor-princ">
+                Realize seu Sonho
+
+                </h5>
+                <p class="mb-3">
+                Agilize a realização do seu sonho de maneira segura, sem juros, 
+com parcelas que cabem no orçamento: adquira a casa ou apartamento
+do seus sonhos, o carro que tanto desejou, acelere a expansão da sua 
+empresa e muito mais!
+                </p>
+          </div>
+
+          <div class="col col-sm-12 col-lg-12 mb-4">
+               <a href=""></a>
+          </div>  
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- parceiros ---------------------------------------->
+<section class="f-branco" id ="parceiros">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-lg-12 mb-3 pt-5 pb-5 centro">
+        <H1 class="display-4 negrito cor-princ centro mb-5"> 
+         Instituições parceiras da Estação
+        </H1>
+                
+          <div class="row mt-5">
+            <div class="col-12 col-sm-6 ">
+                <img src="<?=  BASE_IMG ?>/parceiros/hs.png" alt="" width = "200px">
+            </div>
+            <div class="col-12 col-sm-6 auto">
+                <img src="<?=  BASE_IMG ?>/parceiros/canopus.png" alt="" width = "200px">
+            </div>
+          </div>                      
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- blog ---------------------------------------->
+<section class="f-branco pt-5 pb-5 blog" id ="Blog">
   <div class="container pt-5 pb-5">
     <div class="row">
       <div class="col-12 col-sm-12 col-lg-12 mb-3 pt-5 pb-5">
+        <H1 class="display-5 negrito cor-princ centro mb-4"> 
+           Notícias e Novidades no BlogP
+        </H1>
+        <div class="row">
           
-          <div class="row">
-            <div class="col-12 col-sm-12">
-              <h1 class="negrito mb-3 cor-1">
-                Quem somos?
-              </h1>
-
-              <p class = "f-20">
-                Fundada há mais de 25 anos a Ouro Verde Guindastes,  na direção do Sr Lademar, sempre com bom atendimento e atendimento rápido, tem se posicionado neste mercado, de maneira sólida e promissora, tendo suas parcerias firmada com clientes e assim, mantendo a liderança na região da Grandourados.
-              </p>
-            </div>
-          </div>
-
-          <div class="row mt-3">
-            <div class="col-12 col-sm-6 col-lg-6">
-              <h1 class="negrito mb-3 cor-1">
-                Missão
-              </h1>
-
-              <p class = "f-18">
-                Nossa principal missão é suprir as necessidades do mercado em foco, dentro da nossa área de atuação, zelando pela qualidade de vida da nossa equipe e aprimoramento constante; tendo como alicerce a experiência e tradição.
-              </p>
+          <div class="col-12 col-sm-4 col-lg-4 mb-4">
+              <a style ="" class="card" >
+                <div class="card-img-top" style="background-image: url('<?= BASE_IMG ?>/blog/blog_1.png');"></div>
+                <div class="card-body">
+                  <h5 class="card-title cor-terc negrito">
+                    Consórcio rural: saiba 
+                    por que contratar um!
+                  </h5>
+                  <p class="card-text cinza-7">
+                  Uma excelente maneira de 
+                  investir na sua propriedade 
+                  rural de forma planejada e 
+                  com condições especiais!  
+                  </p>
+                </div>
+                </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-lg-6">
-              <h1 class="negrito mb-3 cor-1">
-                Valores
-              </h1>
 
-              <p class = "f-18">
-                -Manter nossos métodos e visão de trabalho.<br>
-                -Valorizar nossa equipe de colaboradores.<br>
-                -Manter parceria com nossos clientes e fornecedores.<br>
-                -Investir em produtos que resultem qualidade e crescimento.<br>
-                -Manter nossa marca, tornando-a cada vez mais conhecida como líder de mercado.
-              </p>
+          <div class="col-12 col-sm-4 col-lg-4 mb-4">
+              <a style ="" class="card" >
+                <div class="card-img-top" style="background-image: url('<?= BASE_IMG ?>/blog/blog_2.png');"></div>
+                <div class="card-body">
+                  <h5 class="card-title cor-terc negrito">
+                  Consórcio de caminhão 
+                  para renovação de frota
+                  </h5>
+                  <p class="card-text cinza-7">
+                  Renove a sua frota com o
+                  consórcio de forma planejada, 
+                  sem altas taxas de juros e 
+                  ainda economizando!
+                  </p>
+                </div>
+                </a>
             </div>
+
+
+          <div class="col-12 col-sm-4 col-lg-4 mb-4">
+              <a style ="" class="card" >
+                <div class="card-img-top" style="background-image: url('<?= BASE_IMG ?>/blog/blog_3.png');"></div>
+                <div class="card-body">
+                  <h5 class="card-title cor-terc negrito">
+                  As 07 melhores cidades
+                  para investir em imóveis!
+                  </h5>
+                  <p class="card-text cinza-7">
+                  Quer investir em imóveis e não
+                  sabe qual a melhor região? 
+                  Veja as 7 melhores cidades para
+                  investir em imóveis no Brasil!
+                  </p>
+                </div>
+                </a>
+            </div>
+
           </div>
 
       </div>
@@ -175,127 +464,39 @@
   </div>
 </section>
 
-
-<!-- serviços -->
-<section class="pt-5 pb-5 f-cinza-1">
-  <div class="container pt-5 pb-5">
-    <div class="row">
-      <div class="col">
-        <h1 class="negrito cor-2">
-          Nossos serviços
-        </h1>
+<!-- contato ---------------------------------------->
+<section class="f-branco formularioHome" id ="Contato">
+  <div class="container-fluid pt-5">
+    <div class="row mt-4">
+      <div class="col-12 col-sm-6 col-lg-6 pt-5 pb-5 f-terc">
+        <H1 class="display-2 negrito p-5 branco"> 
+            Se preferir, 
+            conte-nos 
+            envie um
+            formulário
+        </H1>
       </div>
-    </div>
+      <div class="col-12 col-sm-6 col-lg-6 mt-5 mb-3 p-5">
+        <form>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="nome" placeholder="nome" name="nome">
+              <label for="nome">Seu nome completo</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" placeholder="name@email.com" name="email">
+              <label for="email">Seu email</label>
+            </div>
 
-    <div class="row mb-4 mt-4">
-      <div class="col-12 col-sm-4 col-lg-4 text-center mb-4">
-        <img src="<?= BASE_IMG ?>extra/guindaste.png" class="img-fluid mb-4 p-3">
-        <br>
-        <h5>SERVIÇOS DE GUINDASTE</h5>
-      </div>
-      <div class="col-12 col-sm-4 col-lg-4 text-center mb-4">
-        <img src="<?= BASE_IMG ?>extra/munck.png" class="img-fluid mb-4 p-3">
-        <br>
-        <h5>SERVIÇOS DE MUNCK</h5>
-      </div>
-      <div class="col-12 col-sm-4 col-lg-4 text-center mb-4">
-        <img src="<?= BASE_IMG ?>extra/locacao.png" class="img-fluid mb-4 p-3">
-        <br>
-        <h5>LOCAÇÃO E REMOÇÃO</h5>
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="form-floating mb-3">
+              <input type="tel" class="form-control" id="telefone" placeholder="telefone" name="telefone">
+              <label for="telefone">Seu telefone</label>
+            </div>
 
-
-<!-- portfolio -->
-<section class="f-1 branco pt-5 pb-5">
-  <div class="container pt-5 pb-5">
-    <div class="row">
-      <div class="col">
-        <h1 class="negrito">
-          Portfólio de serviços
-        </h1>
-      </div>
-    </div>
-
-    <div class="row mt-4 mb-4">
-      <div class="col-12 col-sm-4 col-lg-4 text-center mb-4">
-        <img src="<?= BASE_IMG ?>extra/servico_remocao.png" class="img-fluid mb-4 p-4">
-        <br>
-        <h5 >REMOÇÃO DE ÁRVORES</h5>
-      </div>
-      <div class="col-12 col-sm-4 col-lg-4 text-center mb-4">
-        <img src="<?= BASE_IMG ?>extra/servico_placa.png" class="img-fluid mb-4 p-4">
-        <br>
-        <h5>INSTALAÇÃO DE PLACAS</h5>
-      </div>
-      <div class="col-12 col-sm-4 col-lg-4 text-center mb-4">
-        <img src="<?= BASE_IMG ?>extra/servico_post.png" class="img-fluid mb-4 p-4">
-        <br>
-        <h5>INSTALAÇÃO DE POSTES</h5>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- whatsapp -->
-<section class="pt-5 pb-5">
-  <div class="container pt-5 pb-5">
-
-    <div class="row pt-5">
-      <div class="col-12 col-sm-5 col-lg-6 text-center mb-4">
-        <img src="<?= BASE_IMG ?>extra/caminhao.png" class="img-fluid p-3">
-      </div>
-      <div class="col-12 col-sm-2 col-lg-1"><!-- nulo --></div>
-      <div class="col-12 col-sm-4 col-lg-4 mb-4 p-3 cor-2 d-flex align-items-center">
-        <blockquote>
-            <h1 class="mb-5 f-50">Fale conosco<br><b>pelo WhatsApp</b></h1>
-            <a href = "#" class = "mt-3 btn botao-princ branco negrito centro" style = "border-radius: 10px;"> 
-              <img src="<?= BASE_IMG ?>extra/whatsapp_icon.svg" width = "30px">
-              <span class="p-2 f-24">67 9 9224-3236</span>
-            </a>
-        </blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--  formularios -->
-<section class = "pt-5 pb-5 f-preto">
-  <div class="container">
-    <div class="row">
-      <div class="col centro">
-        <h1 class="negrito branco">
-          Entre em contato
-        </h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-sm-8 col-lg-8 m-auto">
-        <form class = "w-100 p-2">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nomeCompleto" name = "nomeCompleto" placeholder="Digite seu nome completo" />
-            <label for="nomeCompleto">Nome completo</label>
-          </div>
-
-          <div class="form-floating mb-3">
-            <input type="mail" class="form-control" id="email" name = "email"  placeholder="Digite seu e-mail"/>
-            <label for="email">Seu melhor e-mail</label>
-          </div>
-
-          <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="telefone" name = "telefone"  placeholder="Digite seu telefone"/>
-            <label for="telefone">Seu telefone</label>
-          </div>
-
-          <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Deixe a sua mensagem" name = "mensagem" id="mensagemF" style = "height: 200px;"></textarea>
-            <label for="mensagem">Deixe sua mensagem</label>
-          </div>
-
-            <button type="submit" class="btn botao-sec">Enviar mensagem</button>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="mensagam" id="mensagam" name="mensagam"></textarea>
+              <label for="mensagam">Sua mensagam</label>
+            </div>
+            <button type="submit" class="botao-site botao-terc mt-4">Enviar</button>
         </form>
       </div>
     </div>
