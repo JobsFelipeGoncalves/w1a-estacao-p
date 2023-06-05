@@ -3,7 +3,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container">
 
-              <div class="col-12 col-sm-6 col-lg-6 ">
+              <div class="col-12 col-sm-5 col-lg-5 ">
                 <a class="navbar-brand" href="#">
                   <img src="<?= BASE_IMG ?>marcas/estacao_p.png" />
                 </a>

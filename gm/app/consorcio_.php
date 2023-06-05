@@ -21,7 +21,7 @@
     <link href="<?= $URL_CSS ?>fg.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Editando destaques - Gerencie Mais :: <?= $NOME_CLIENT ?></title>
+    <title>Editando - Gerencie Mais :: <?= $NOME_CLIENT ?></title>
      <style type="text/css">
                                    
         .exibir{
@@ -48,7 +48,7 @@
                 <!-- titulo de páginas -->
                 <div class="row" class = "gm-navegacao-pag">
                      <div class="col-md mb-2">                                   
-                        <a href="destaques.php?aba=publicado&acao=lista" class = "gm-link">
+                        <a href="consorcio.php?aba=publicado&acao=lista" class = "gm-link">
                             <span class="material-symbols-rounded f-16 negrito">
                                 arrow_back
                             </span>
@@ -72,7 +72,7 @@
                 <div class="row" class = "gm-navegacao-pag">
                      <div class="col-md">                                   
                         <h5>
-                            Criando destaque ...
+                            Criando ...
                         </h5>
                     </div>
                 </div>
@@ -98,15 +98,17 @@
 
         //recebe os campos do formulários
         $titulo = $_POST['titulo'];
-        $img_desc = $_FILES['img_destaque']['name'];
-        $texto_botao = $_POST['texto_botao'];
-        $link_botao = $_POST['link_botao'];
+        $frase = $_POST['frase'];
+        $credito = $_POST['credito'];
+        $ValorMensal = $_POST['ValorMensal'];
 
-        $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/slide/'. $_FILES['img_destaque']['name']);
+        $img_desc = $_FILES['img_destaque']['name'];
+
+        $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/consorcio/'. $_FILES['img_destaque']['name']);
 
         if($move_imagem){
-            $inserir = "INSERT INTO slides_simples (id, titulo, img, link_botao, texto_botao,  status)  
-                        VALUES ('$identificador', '$titulo', '$img_desc', '$link_botao', '$texto_botao', 'publicado')";
+            $inserir = "INSERT INTO consorcio (id, categoria, frase, credito, parcela, img, status)  
+                        VALUES ('$identificador', '$titulo', '$frase', '$credito', '$ValorMensal', '$img_desc', 'publicado')";
 
                         $acao = $conexao -> prepare ($inserir);
                         $acao -> execute ();
@@ -124,10 +126,25 @@
                     <!-- formulario -->
                     <form id = "formConteudo" class = "gm-formularios-int" method="post" enctype="multipart/form-data">
 
-                    <h5 class = "mb-3">Configure seu destaque</h5>
+                    <h5 class = "mb-3">Configure </h5>
                       <div class="mb-3">
-                        <label for="titulo" class="form-label">Titulo</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <label for="titulo" class="form-label">Categoria</label> <span class="badge text-bg-light">Obrigatório</span>
                         <input type="text" class="form-control" id="titulo" name="titulo" required>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="frase" class="form-label">Frase</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="frase" name="frase" required>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="credito" class="form-label">Valor do crédito</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="credito" name="credito" required>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="ValorMensal" class="form-label">Valor por mensal</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="ValorMensal" name="ValorMensal" required>
                       </div>
 
                       <div class="row">  
@@ -139,24 +156,6 @@
                         
 
 
-                      <div class="pt-0 pb-3">
-                        <hr>
-                      </div>
-                      <h5 class = "mb-3">Botão do destaque</h5>
-
-                       <div class="mb-3 col">
-                            <label for="texto_botao" class="form-label">Texto do botão</label><span class="badge text-bg-light">Obrigatório</span> 
-                            <input type="text" class="form-control" id="texto_botao" name="texto_botao" required>
-                          </div>  
-
-                      <div class="row">
-                            
-                         <div class="mb-3 col">
-                            <label for="link_botao" class="form-label">Link do botão</label> <span class="badge text-bg-light">Obrigatório</span>
-                            <input type="link" class="form-control" id="link_botao" name="link_botao" required>
-                          </div>
-
-                      </div>
                       <div class="pt-0 pb-3">
                         <hr>
                       </div>
@@ -175,7 +174,7 @@ if( $funcaoAtual == "editar" ){
 
 
         $idSelecao = $_GET['id'];
-        $seleciona = "SELECT * FROM slides_simples WHERE id = '$idSelecao' LIMIT 1";
+        $seleciona = "SELECT * FROM consorcio WHERE id = '$idSelecao' LIMIT 1";
         $consulta = $conexao -> prepare($seleciona);
         $consulta -> execute();
 
@@ -208,16 +207,17 @@ if( $funcaoAtual == "editar" ){
 
         //recebe os campos do formulários
         $titulo = $_POST['titulo'];
+        $frase = $_POST['frase'];
+        $credito = $_POST['credito'];
+        $ValorMensal = $_POST['ValorMensal'];
         @$opcaoTrocar = $_POST['opcaoTrocar'];
-        $img_desc = $_FILES['img_destaque']['name'];        
-        $texto_botao = $_POST['texto_botao'];
-        $link_botao = $_POST['link_botao'];
+        $img_desc = $_FILES['img_destaque']['name'];
 
         if($opcaoTrocar != ""){
-            $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/slide/'. $_FILES['img_destaque']['name']);
+            $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/consorcio/'. $_FILES['img_destaque']['name']);
 
             if($move_imagem){
-                $inserir = "UPDATE slides_simples SET titulo = '$titulo', img = '$img_desc', texto_botao = '$texto_botao', link_botao = '$link_botao', status = 'publicado'  WHERE id = '$idSelecao'";
+                $inserir = "UPDATE consorcio SET categoria = '$titulo', frase ='$frase', credito = '$credito', parcela = '$ValorMensal',  img = '$img_desc', status = 'publicado'  WHERE id = '$idSelecao'";
                 $acao = $conexao -> prepare ($inserir);
                 $acao -> execute ();
 
@@ -228,7 +228,7 @@ if( $funcaoAtual == "editar" ){
             }
             
         }else{
-            $inserir = "UPDATE slides_simples SET titulo = '$titulo', texto_botao = '$texto_botao', link_botao = '$link_botao', status = 'publicado'  WHERE id = '$idSelecao'";
+            $inserir = "UPDATE consorcio SET categoria = '$titulo', frase ='$frase', credito = '$credito', parcela = '$ValorMensal',  status = 'publicado' WHERE id = '$idSelecao'";
             $acao = $conexao -> prepare ($inserir);
             $acao -> execute ();
 
@@ -249,8 +249,23 @@ if( $funcaoAtual == "editar" ){
 
                       <h5 class = "mb-3">Configure seu destaque</h5>
                       <div class="mb-3">
-                        <label for="titulo" class="form-label">Titulo</label> <span class="badge text-bg-light">Obrigatório</span>
-                        <input type="text" class="form-control" id="titulo" name="titulo" required value="<?= $registoSelecao['titulo'] ?>">
+                        <label for="titulo" class="form-label">Categoria</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="titulo" name="titulo" required value="<?= $registoSelecao['categoria'] ?>">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="frase" class="form-label">Frase</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="frase" name="frase" required value="<?= $registoSelecao['frase'] ?>">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="credito" class="form-label">Valor do crédito</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="credito" name="credito" required value="<?= $registoSelecao['credito'] ?>">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="ValorMensal" class="form-label">Valor por mensal</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="ValorMensal" name="ValorMensal" required value="<?= $registoSelecao['parcela'] ?>">
                       </div>
 
 
@@ -281,27 +296,6 @@ if( $funcaoAtual == "editar" ){
                       <div class="pt-0 pb-3">
                         <hr>
                       </div>
-                      <h5 class = "mb-3">Botão do destaque</h5>
-
-                       <div class="mb-3 col">
-                            <label for="texto_botao" class="form-label">Texto do botão</label><span class="badge text-bg-light">Obrigatório</span> 
-                            <input type="text" class="form-control" id="texto_botao" name="texto_botao" required value="<?= $registoSelecao['texto_botao'] ?>">
-                          </div>  
-
-                      <div class="row">
-                            
-                         <div class="mb-3 col">
-                            <label for="link_botao" class="form-label">Link do botão</label> <span class="badge text-bg-light">Obrigatório</span>
-                            <input type="link" class="form-control" id="link_botao" name="link_botao" required value="<?= $registoSelecao['link_botao'] ?>">
-                          </div>
-
-                      </div>
-
-                      <div class="pt-0 pb-3">
-                        <hr>
-                      </div>
-
-
                       <div class="mb-3">
                         
                           <input type="hidden" name = "idSelecao" class = "botao botao-a-min" value = "<?= $idSelecao ?>">

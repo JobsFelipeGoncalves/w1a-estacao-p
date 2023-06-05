@@ -15,7 +15,7 @@
     <link href="<?= $URL_CSS ?>fg.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Destaques - Gerencie Mais :: <?= $NOME_CLIENT ?></title>
+    <title>Consorcio - Gerencie Mais :: <?= $NOME_CLIENT ?></title>
   </head>
 
   <body class = "cor-cinza-6">
@@ -51,10 +51,10 @@
 
                 <div class="row">
                     <div class="col-sm-9 col-md-9">             
-                        <h5>Destaques</h5>
+                        <h5>Consórcios</h5>
                     </div>
                     <div class="col-sm-3 col-md-3 mb-2">
-                        <a href="destaques_.php?funcao=novo&urlRetorno=<?= $URL_ATUAL ?>" class = "botao botao-a-min b-pequeno float-end">Criar um novo</a>
+                        <a href="consorcio_.php?funcao=novo&urlRetorno=<?= $URL_ATUAL ?>" class = "botao botao-a-min b-pequeno float-end">Criar um novo</a>
                     </div>
                 </div>
 
@@ -79,10 +79,10 @@
 
                                 <ul class="nav abas-navegacao">
                                   <li class="nav-item">
-                                    <a class="nav-link <?= $abaAtual == "publicado" ? "active" : ""; ?>" href="destaques.php?aba=publicado&acao=lista">Publicados</a>
+                                    <a class="nav-link <?= $abaAtual == "publicado" ? "active" : ""; ?>" href="consorcio.php?aba=publicado&acao=lista">Publicados</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link <?= $abaAtual == "lixeira" ? "active" : ""; ?>" href="destaques.php?aba=lixeira&acao=lista">Lixeira</a>
+                                    <a class="nav-link <?= $abaAtual == "lixeira" ? "active" : ""; ?>" href="consorcio.php?aba=lixeira&acao=lista">Lixeira</a>
                                   </li>
                                 </ul>
 
@@ -103,7 +103,7 @@
                     //calculo do inico da visualização
                     $inicio =  ($limiteRegistro * $paginaRecebida) - $limiteRegistro;
 
-                        $seleciona = "SELECT * FROM slides_simples WHERE status = '$abaAtual' ORDER BY ordem DESC LIMIT $inicio, $limiteRegistro  ";
+                        $seleciona = "SELECT * FROM consorcio WHERE status = '$abaAtual' ORDER BY ordem DESC LIMIT $inicio, $limiteRegistro  ";
                         $consulta = $conexao -> prepare($seleciona);
                         $consulta -> execute();
 
@@ -117,7 +117,7 @@
                     <div class = "gm-box-item mb-2 mt-2">
                         <div class="row f-14">
                             <div class="col">
-                                <span ><?= $registo['titulo'] ?></span><br>
+                                <span ><?= $registo['categoria'] ?></span><br>
                             </div>
                             <div class="col col-sm-2 d-flex align-items-center">
                                 <span class="badge text-bg-success "><?= $registo['status'] ?></span>
@@ -130,11 +130,11 @@
                                         </span>
                                       </button>
                                       <ul class="dropdown-menu f-14">
-                                        <li><a class="dropdown-item" href="destaques_.php?funcao=editar&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>">Editar</a></li>
+                                        <li><a class="dropdown-item" href="consorcio_.php?funcao=editar&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>">Editar</a></li>
                                         <?php if($abaAtual != "lixeira"){ ?> 
-                                        <li><a class="dropdown-item" href="destaques.php?botao=lixeira&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>">Mover para o lixo</a></li>
+                                        <li><a class="dropdown-item" href="consorcio.php?botao=lixeira&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>">Mover para o lixo</a></li>
                                         <?php }elseif($abaAtual == "lixeira"){ ?> 
-                                        <li><a class="dropdown-item" href="destaques.php?botao=restaurar&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>">Restaurar</a></li>
+                                        <li><a class="dropdown-item" href="consorcio.php?botao=restaurar&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>">Restaurar</a></li>
                                         <li><a class="dropdown-item" href="#"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Excluir para sempre</a></li>
                                         <?php }?>
                                       </ul>
@@ -154,13 +154,13 @@
                                                       <div class="modal-body">
 
                                                         <p class = "f-14">
-                                                            Ao fazer essa ação, você irá excluir permanentemente o "<?= $registo['titulo'] ?>" da lixeira e não poderá recuperá-lo. Tem centeza que quer fazer esta ação?
+                                                            Ao fazer essa ação, você irá excluir permanentemente o "<?= $registo['categoria'] ?>" da lixeira e não poderá recuperá-lo. Tem centeza que quer fazer esta ação?
                                                         </p>
 
                                                       </div>
                                                       <div class="modal-footer">
                                                         <button type="button" class="botao b-pequeno botao-b-min" data-bs-dismiss="modal">Cancelar</button>
-                                                        <a href="destaques.php?botao=excluir&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>" type="button" class="botao b-pequeno botao-a-min">Sim! Excluir.</a>
+                                                        <a href="consorcio.php?botao=excluir&id=<?= $registo['id'] ?>&urlRetorno=<?= $URL_ATUAL ?>" type="button" class="botao b-pequeno botao-a-min">Sim! Excluir.</a>
                                                       </div>
                                                 </div>
                                               </div>
@@ -187,7 +187,7 @@
                         <!-- caso esteja vazio -->
                        <div class="centro p-5">                        
                             <p class = "f-16 negrito">Você ainda não tem item publicado!</p>
-                            <a href="destaques_.php?funcao=novo&urlRetorno=<?= $URL_ATUAL ?>" class = "botao botao-a-min b-pequeno">Adicione agora</a><br>
+                            <a href="consorcio_.php?funcao=novo&urlRetorno=<?= $URL_ATUAL ?>" class = "botao botao-a-min b-pequeno">Adicione agora</a><br>
                             <img width = "280px" src="<?= $URL_IMG ?>sistema/32980671.jpg" />                        
                         </div>
 
@@ -205,7 +205,7 @@
                         <?php                        
 
                             //Conta a quantidade de registo no meu banco
-                            $contaRegisto = "SELECT COUNT(id) AS numeroAchado FROM slides_simples";
+                            $contaRegisto = "SELECT COUNT(id) AS numeroAchado FROM consorcio";
                             $quantidadeRegistros = $conexao -> prepare($contaRegisto);
                             $quantidadeRegistros -> execute();
                             $quantidadePesquisa = $quantidadeRegistros -> fetch(PDO::FETCH_ASSOC);
@@ -291,7 +291,7 @@
             //OCUTANDO conteúdo
             if ($acaoBotao == "lixeira") {
                 //========
-                $selecionaAcao = "UPDATE slides_simples SET status = 'lixeira' WHERE id = '$acoRotativo'";
+                $selecionaAcao = "UPDATE consorcio SET status = 'lixeira' WHERE id = '$acoRotativo'";
                 $consultaAcao = $conexao -> prepare($selecionaAcao);
                 $consultaAcao -> execute();
 
@@ -303,7 +303,7 @@
             if ($acaoBotao == "restaurar") {
 
                // echo "Ok! Vamos ocultar conteúdo";
-                $selecionaAcao = "UPDATE slides_simples SET status = 'publicado' WHERE id = '$acoRotativo'";
+                $selecionaAcao = "UPDATE consorcio SET status = 'publicado' WHERE id = '$acoRotativo'";
                 $consultaAcao = $conexao -> prepare($selecionaAcao);
                 $consultaAcao -> execute();
 
@@ -316,7 +316,7 @@
             if ($acaoBotao == "excluir") {
 
                 // echo "Ok! Vamos ocultar conteúdo";
-                $selecionaAcao = "DELETE FROM slides_simples WHERE id = '$acoRotativo'";
+                $selecionaAcao = "DELETE FROM consorcio WHERE id = '$acoRotativo'";
                 $consultaAcao = $conexao -> prepare($selecionaAcao);
                 $consultaAcao -> execute();
  

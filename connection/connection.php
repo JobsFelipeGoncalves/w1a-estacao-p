@@ -2,7 +2,7 @@
     $host = "localhost";
     $usuario = "root";
     $senha = "";
-    $banco = "gm_3";
+    $banco = "estacao_p";
     $porta = "";
 
     // $host = "mysql.ouroverdeguindastes.com.br";

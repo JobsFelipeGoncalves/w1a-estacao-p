@@ -6,7 +6,7 @@ if(!defined('BASE_DEV')){
 
 if(!defined('BASE')){
   define('BASE','http://localhost/w1agencia/estacao-p/');
-  //define('BASE','http://www.ouroverdeguindastes.com.br/demo/');
+  //define('BASE','http://www.w1agencia.com.br/demo/');
 }
 
 if(!defined('BASE_IMG')){

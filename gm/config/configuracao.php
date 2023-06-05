@@ -8,11 +8,11 @@
     include_once ("conexao.php");
 
     //url do cliente
-    //$URL_BASE_CLIENT = "http://localhost/w1agencia/ouro-verde/";
-    $URL_BASE_CLIENT = "http://www.ouroverdeguindastes.com.br/demo/";
+    $URL_BASE_CLIENT = "http://localhost/w1agencia/estacao-p/";
+    //$URL_BASE_CLIENT = "http://www.ouroverdeguindastes.com.br/demo/";
 
     //nome do cliente
-    $NOME_CLIENT = "Ouro Verde Guindastes";
+    $NOME_CLIENT = "Estação P";
 
     //bases Gerencie mais
     //$URL_BASE = $URL_BASE_CLIENT."gerenciemais/";

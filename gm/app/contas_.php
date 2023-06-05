@@ -190,8 +190,7 @@
                 </div><!-- gm-box -->
 <?php
 
-}
-if($funcaoAtual == "editar"){
+}}if($funcaoAtual == "editar"){
 
     
 

@@ -86,13 +86,30 @@
                         Destaques
                     </a>
                   </li>
-<!--                   <li class="nav-item">
-                    <a class="nav-link" href="depoimentos.php?aba=publicado&acao=lista">
-                        <span class="material-symbols-rounded icones">
-                        comment
+                  <li class="nav-item">
+                    <a class="nav-link" href="blog.php?aba=publicado&acao=lista">
+                    <span class="material-symbols-rounded icones">
+                    description
+                    </span>
+                        Blog
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="parceiros.php?aba=publicado&acao=lista">
+                    <span class="material-symbols-rounded icones">
+                    handshake
+                    </span>
+                        Parceiros
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="consorcio.php?aba=publicado&acao=lista">
+                    <span class="material-symbols-rounded icones">
+                        work
                         </span>
-                    Depoimentos</a>
-                  </li> -->
+                        Consórcio
+                    </a>
+                  </li>
                
                   <li class="nav-item">
                     <a class="nav-link" href="seo.php?acao=lista">

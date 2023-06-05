@@ -1,28 +1,28 @@
 <?php
-  //include_once ('connection/connection.php');
+  include_once ('connection/connection.php');
 ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
 <?php
   
-  // $seleciona = "SELECT * FROM seo";
-  //   $consulta = $conexao -> prepare($seleciona);
-  //   $consulta -> execute();
+  $seleciona = "SELECT * FROM seo";
+    $consulta = $conexao -> prepare($seleciona);
+    $consulta -> execute();
 
-  //     if(($consulta) AND ($consulta -> rowCount () != 0)){
-  //         while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
+      if(($consulta) AND ($consulta -> rowCount () != 0)){
+          while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
 
-  //           $tituloSeo = $registo['titulo'];
-  //           $descricaoSeo = $registo['descricao'];
-  //           $palavrasSeo = $registo['palavras_chave'];
+            $tituloSeo = $registo['titulo'];
+            $descricaoSeo = $registo['descricao'];
+            $palavrasSeo = $registo['palavras_chave'];
 
-  //         }
-  //     }
+          }
+      }
 
 ?>
 
-  <title>Estação P - Consórcio e investimento </title>
+  <title><?= $tituloSeo ?> </title>
   <meta charset="UTF-8">
   <meta name="viewport"              content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,8 +36,8 @@
   <meta property="og:site_name"    content="Estação P - Consórcio e investimento ">
   <meta property="og:url"          content="<?= BASE ?>" />
   <meta property="og:type"         content="website" />
-  <meta property="og:title"        content="" />
-  <meta property="og:description"  content="" />
+  <meta property="og:title"        content="<?= $tituloSeo ?>" />
+  <meta property="og:description"  content="<?= $descricaoSeo ?>" />
   <meta property="og:image"        content="<?= BASE_IMG ?>marcas/estacao_p.png" />
 
 
@@ -61,7 +61,7 @@
       <!-- body -->
 
  <!-- slide ---------------------------------------->
-<section class="slide">
+<!-- <section class="slide">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-sm-5 col-lg-5 p-3">
@@ -78,73 +78,44 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
           <!-- === Apresentação com bd === -->
-          <!-- <section id = "apresentacao" class = "">
+         <section id = "apresentacao" class = "slide">
             <div class="owl-carousel owl-theme">
 
   <?php
-        // $seleciona = "SELECT * FROM slides_simples WHERE status = 'publicado' ";
-        // $consulta = $conexao -> prepare($seleciona);
-        // $consulta -> execute();
+        $seleciona = "SELECT * FROM slides_simples WHERE status = 'publicado' ";
+        $consulta = $conexao -> prepare($seleciona);
+        $consulta -> execute();
 
-        //   if(($consulta) AND ($consulta -> rowCount () != 0)){
+          if(($consulta) AND ($consulta -> rowCount () != 0)){
 
-        //       while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
+              while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){
   ?>
 
              <div class="item m-auto">                
-                <div class="container-fluid img-destaque" style = "background-image: url(<?= BASE ?>gm/img/slide/<?= $registo['img'] ?>);">
-                  <div class="row pt-5 pb-5" >
-                      <div class="col-12 col-sm-1 col-lg-1"></div>
-                      <div class="col-12 col-sm-3 col-lg-3 d-flex">   
-                        <div class="adfox  align-self-center">
-                          <h1 class="display-5 negrito cor-1">
-                            <?= $registo['titulo'] ?>
-                          </h1>
-                          <h5>
-                            <?= $registo['subtitulo'] ?>
-                          </h5>
-                          <p class = "mt-4">
-                            <a href="<?= $registo['link_botao'] ?>" class = "btn botao-princ botao-medio"><?= $registo['texto_botao'] ?></a>
-                          </p> 
-                        </div>                 
-                      </div>
-
-                      <div class="col-12 col-sm-5 col-lg-5 d-flex">
-                          <!-- nulo -->
-                      </div>
+                <div class="container-fluid img-destaque">
+                <div class="row">
+                    <div class="col-12 col-sm-5 col-lg-5 p-3">
+                      <H1 class="display-3 negrito p-5 cor-princ"> 
+                      <?= $registo['titulo'] ?>
+                      </H1>
+                      <p class="p-5 pt-1">
+                        <a href="<?= $registo['link_botao'] ?>" class="botao-site botao-terc"><?= $registo['texto_botao'] ?></a>
+                      </p>
+                    </div>
+                    <div class="col-12 col-sm-7 col-lg-7 p-3 d-flex align-items-center">
+                          <img src="<?= BASE ?>gm/img/slide/<?= $registo['img'] ?>" class="img-fluid" style = "max-width:600px;">
+                    </div>
                   </div>
                 </div>
               </div> 
-         <!--      <div class="item m-auto">
-                        <div class="container-fluid img-destaque pb-5 pt-5" style = "background-image: url(<?= BASE ?>gm/img/slide/<?= $registo['img'] ?>);">
-                          <div class="row mt-5 mb-5 pt-5 pb-5" >
-                            <div class="col-12 col-sm-2 col-lg-2"></div>
-                            <div class="col-12 col-sm-5 col-lg-5 d-flex">   
-                              <div class="adfox  align-self-center">
-                                <h1 class="display-3 negrito cor-1">
-                                  <?= $registo['titulo'] ?>
-                                </h1>
-                                <h5>Subtitulo</h5>
-                                <p class = "mt-4">
-                                  <a href="<?= $registo['link_botao'] ?>" class = "botao bbotao-grande f-20" style = "color: fff; background-color: <?= $registo['cor_botao'] ?>;"><?= $registo['texto_botao'] ?></a>
-                                </p> 
-                              </div>                 
-                            </div>
-
-                            <div class="col-12 col-sm-4 col-lg-4 d-flex">
-                                <!-- nulo --
-                            </div>
-                          </div>
-                        </div>
-              </div> -->
-<?php //}} ?>
-            <!-- </div>                                
-            <div class = " owl-theme MB-5">
-              <div class="owl-controls"><div class="custom-nav owl-nav"></div></div>
+<?php }} ?>
+            </div>                                
+            <div class = "owl-theme"style = "display: none !important;" >
+              <div class="owl-controls" style = "display: none;"><div class="custom-nav owl-nav" style = "display: none;"></div></div>
             </div>
-          </section> -->
+          </section> 
 
 <!-- quem somos ---------------------------------------->
 <section class="f-branco pt-5 pb-5 sobre" id ="SobreEstacaoP">
@@ -254,7 +225,7 @@
               
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title centro f-terc branco">Motocicletas </h5>
+                      <h5 class="card-title centro f-terc branco">Bens Duráveis </h5>
                       <p class="card-text f-20 negrito cinza-5 centro">
                       <span class="mb-4">
                         Para suas aventuras do dia-a-dia <br>
@@ -555,7 +526,7 @@ empresa e muito mais!
 
     $('#apresentacao .owl-carousel').owlCarousel({
           loop:true,
-          nav:true,
+          nav:false,
           navText:[
             '<img src="<?= BASE_IMG ?>extra/previous.png" alt="Seta esquerda" class="img-fluid" width="45">',
             '<img src="<?= BASE_IMG ?>extra/next.png" alt="Seta direita" class="img-fluid"  width="45">'

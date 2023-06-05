@@ -19,9 +19,10 @@
     <!-- CSS -->
     <link href="<?= $URL_CSS ?>bootstrap.min.css" rel="stylesheet">    
     <link href="<?= $URL_CSS ?>fg.min.css" rel="stylesheet">
+    <link href="<?= $URL_CSS ?>froala_editor.pkgd.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Editando destaques - Gerencie Mais :: <?= $NOME_CLIENT ?></title>
+    <title>Editando - Gerencie Mais :: <?= $NOME_CLIENT ?></title>
      <style type="text/css">
                                    
         .exibir{
@@ -48,7 +49,7 @@
                 <!-- titulo de páginas -->
                 <div class="row" class = "gm-navegacao-pag">
                      <div class="col-md mb-2">                                   
-                        <a href="destaques.php?aba=publicado&acao=lista" class = "gm-link">
+                        <a href="blog.php?aba=publicado&acao=lista" class = "gm-link">
                             <span class="material-symbols-rounded f-16 negrito">
                                 arrow_back
                             </span>
@@ -72,7 +73,7 @@
                 <div class="row" class = "gm-navegacao-pag">
                      <div class="col-md">                                   
                         <h5>
-                            Criando destaque ...
+                            Criando ...
                         </h5>
                     </div>
                 </div>
@@ -97,16 +98,15 @@
 
 
         //recebe os campos do formulários
-        $titulo = $_POST['titulo'];
+        $titulo = $_POST['nome'];
         $img_desc = $_FILES['img_destaque']['name'];
-        $texto_botao = $_POST['texto_botao'];
-        $link_botao = $_POST['link_botao'];
+        $msg = $_POST['msgPost'];
 
-        $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/slide/'. $_FILES['img_destaque']['name']);
+        $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/post/'. $_FILES['img_destaque']['name']);
 
         if($move_imagem){
-            $inserir = "INSERT INTO slides_simples (id, titulo, img, link_botao, texto_botao,  status)  
-                        VALUES ('$identificador', '$titulo', '$img_desc', '$link_botao', '$texto_botao', 'publicado')";
+            $inserir = "INSERT INTO blog (id, titulo, conteudo, img, status)  
+                        VALUES ('$identificador', '$titulo', '$msg', '$img_desc', 'publicado')";
 
                         $acao = $conexao -> prepare ($inserir);
                         $acao -> execute ();
@@ -124,10 +124,10 @@
                     <!-- formulario -->
                     <form id = "formConteudo" class = "gm-formularios-int" method="post" enctype="multipart/form-data">
 
-                    <h5 class = "mb-3">Configure seu destaque</h5>
+                    
                       <div class="mb-3">
-                        <label for="titulo" class="form-label">Titulo</label> <span class="badge text-bg-light">Obrigatório</span>
-                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                        <label for="nome" class="form-label">Titulo</label> <span class="badge text-bg-light">Obrigatório</span>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
                       </div>
 
                       <div class="row">  
@@ -137,29 +137,16 @@
                             </div>
                       </div>
                         
-
-
                       <div class="pt-0 pb-3">
                         <hr>
                       </div>
-                      <h5 class = "mb-3">Botão do destaque</h5>
-
-                       <div class="mb-3 col">
-                            <label for="texto_botao" class="form-label">Texto do botão</label><span class="badge text-bg-light">Obrigatório</span> 
-                            <input type="text" class="form-control" id="texto_botao" name="texto_botao" required>
-                          </div>  
-
-                      <div class="row">
-                            
-                         <div class="mb-3 col">
-                            <label for="link_botao" class="form-label">Link do botão</label> <span class="badge text-bg-light">Obrigatório</span>
-                            <input type="link" class="form-control" id="link_botao" name="link_botao" required>
-                          </div>
-
+                      <div class="row">  
+                        <div class="mb-3 col">
+                          <label for="textoEditor" class="form-label">Conteúdo</label>
+                            <textarea id="textoEditor" name="msgPost"></textarea>
+                        </div>
                       </div>
-                      <div class="pt-0 pb-3">
-                        <hr>
-                      </div>
+
                       <div class="mb-3">
                           <input type="submit" name = "enviar" class = "botao botao-a-min b-pequeno" value = "Salvar e publicar">
                       </div>
@@ -175,7 +162,7 @@ if( $funcaoAtual == "editar" ){
 
 
         $idSelecao = $_GET['id'];
-        $seleciona = "SELECT * FROM slides_simples WHERE id = '$idSelecao' LIMIT 1";
+        $seleciona = "SELECT * FROM blog WHERE id = '$idSelecao' LIMIT 1";
         $consulta = $conexao -> prepare($seleciona);
         $consulta -> execute();
 
@@ -190,7 +177,7 @@ if( $funcaoAtual == "editar" ){
                 <div class="row" class = "gm-navegacao-pag">
                      <div class="col-md">                                   
                         <h5>
-                            Editando um vídeo
+                            Editando 
                         </h5>
                     </div>
                 </div>
@@ -207,17 +194,16 @@ if( $funcaoAtual == "editar" ){
         $idSelecao = $_POST['idSelecao'];
 
         //recebe os campos do formulários
-        $titulo = $_POST['titulo'];
+        $titulo = $_POST['nome'];
         @$opcaoTrocar = $_POST['opcaoTrocar'];
-        $img_desc = $_FILES['img_destaque']['name'];        
-        $texto_botao = $_POST['texto_botao'];
-        $link_botao = $_POST['link_botao'];
+        $img_desc = $_FILES['img_destaque']['name'];    
+        $msg = $_POST['msgPost'];
 
         if($opcaoTrocar != ""){
-            $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/slide/'. $_FILES['img_destaque']['name']);
+            $move_imagem = move_uploaded_file($_FILES['img_destaque']['tmp_name'], '../img/post/'. $_FILES['img_destaque']['name']);
 
             if($move_imagem){
-                $inserir = "UPDATE slides_simples SET titulo = '$titulo', img = '$img_desc', texto_botao = '$texto_botao', link_botao = '$link_botao', status = 'publicado'  WHERE id = '$idSelecao'";
+                $inserir = "UPDATE blog SET titulo = '$titulo', conteudo = '$msg', img = '$img_desc', status = 'publicado'  WHERE id = '$idSelecao'";
                 $acao = $conexao -> prepare ($inserir);
                 $acao -> execute ();
 
@@ -228,7 +214,7 @@ if( $funcaoAtual == "editar" ){
             }
             
         }else{
-            $inserir = "UPDATE slides_simples SET titulo = '$titulo', texto_botao = '$texto_botao', link_botao = '$link_botao', status = 'publicado'  WHERE id = '$idSelecao'";
+            $inserir = "UPDATE blog SET titulo = '$titulo', conteudo = '$msg', status = 'publicado'  WHERE id = '$idSelecao'";
             $acao = $conexao -> prepare ($inserir);
             $acao -> execute ();
 
@@ -250,14 +236,14 @@ if( $funcaoAtual == "editar" ){
                       <h5 class = "mb-3">Configure seu destaque</h5>
                       <div class="mb-3">
                         <label for="titulo" class="form-label">Titulo</label> <span class="badge text-bg-light">Obrigatório</span>
-                        <input type="text" class="form-control" id="titulo" name="titulo" required value="<?= $registoSelecao['titulo'] ?>">
+                        <input type="text" class="form-control" id="titulo" name="nome" required value="<?= $registoSelecao['titulo'] ?>">
                       </div>
 
 
 
                       <div class="row"> 
                             <div class="col-md-5">
-                                <img src="<?= $URL_IMG ?>slide/<?= $registoSelecao['img'] ?>" class = "img-fluid">
+                                <img src="<?= $URL_IMG ?>post/<?= $registoSelecao['img'] ?>" class = "img-fluid">
                             </div>       
 
                             <div class="col pt-3">
@@ -281,24 +267,13 @@ if( $funcaoAtual == "editar" ){
                       <div class="pt-0 pb-3">
                         <hr>
                       </div>
-                      <h5 class = "mb-3">Botão do destaque</h5>
 
-                       <div class="mb-3 col">
-                            <label for="texto_botao" class="form-label">Texto do botão</label><span class="badge text-bg-light">Obrigatório</span> 
-                            <input type="text" class="form-control" id="texto_botao" name="texto_botao" required value="<?= $registoSelecao['texto_botao'] ?>">
-                          </div>  
-
-                      <div class="row">
-                            
-                         <div class="mb-3 col">
-                            <label for="link_botao" class="form-label">Link do botão</label> <span class="badge text-bg-light">Obrigatório</span>
-                            <input type="link" class="form-control" id="link_botao" name="link_botao" required value="<?= $registoSelecao['link_botao'] ?>">
-                          </div>
-
-                      </div>
-
-                      <div class="pt-0 pb-3">
-                        <hr>
+                      
+                      <div class="row">  
+                        <div class="mb-3 col">
+                          <label for="textoEditor" class="form-label">Conteúdo</label>
+                            <textarea id="textoEditor" name="msgPost"><?= $registoSelecao['conteudo'] ?></textarea>
+                        </div>
                       </div>
 
 
@@ -332,7 +307,13 @@ if( $funcaoAtual == "editar" ){
     <script src="<?= $URL_JS ?>jquery.min.js"></script>
     <script src="<?= $URL_JS ?>popper.min.js"></script>
     <script src="<?= $URL_JS ?>bootstrap.min.js"></script>
-    <script src="<?= $URL_JS ?>bootstrap.bundle.min.js"></script>    
+    <script src="<?= $URL_JS ?>bootstrap.bundle.min.js"></script> 
+    <script src="<?= $URL_JS ?>froala_editor.pkgd.min.js"></script>    
+    <script>
+      var editor = new FroalaEditor("#textoEditor",{
+        height: 300
+      });
+    </script>
     <script type="text/javascript">
     $('#opcaoTrocar').change(function(){
         var marcaCheck = document.getElementById('opcaoTrocar');
