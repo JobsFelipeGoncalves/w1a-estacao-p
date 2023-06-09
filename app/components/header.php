@@ -4,7 +4,7 @@
         <div class="container">
 
               <div class="col-12 col-sm-5 col-lg-5 ">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="<?= BASE ?>">
                   <img src="<?= BASE_IMG ?>marcas/estacao_p.png" />
                 </a>
 
@@ -35,22 +35,22 @@
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a class="nav-link active"href="#pagina-inicial">Home</a>
+                        <a class="nav-link active"href="<?= BASE ?>#pagina-inicial">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#SobreEstacaoP">A Estação</a>
+                        <a class="nav-link" href="<?= BASE ?>#SobreEstacaoP">A Estação</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#Consorcio">Consórcio</a>
+                        <a class="nav-link" href="<?= BASE ?>#Consorcio">Consórcio</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#Seguros">Seguros</a>
+                        <a class="nav-link" href="<?= BASE ?>#Seguros">Seguros</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#Blog">Blog</a>
+                        <a class="nav-link" href="<?= BASE ?>blog">Blog</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#Contato">Contato</a>
+                        <a class="nav-link" href="<?= BASE ?>#Contato">Contato</a>
                       </li>
                     </ul>
                   </div>

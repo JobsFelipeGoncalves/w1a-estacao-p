@@ -1,11 +1,11 @@
 <?php
 include('url_response.php');
 	$urlpatterns = array(
-
-
-		'/trabalhe-conosco' => 'empregos.php',
-
-
+		
+		'/blog/post/(?P<blogSingle>\S+)/(?P<blogTitulo>\S+)' => 'blog-single.php',	
+		'/blog/(?P<pg>\S+)' => 'blog.php',
+		'/blog/' => 'blog.php',
+		'/blog' => 'blog.php',
 		'/' => 'index.php'
 
 		//CONFIGURAÇÃO DE URL'S PADRÕES

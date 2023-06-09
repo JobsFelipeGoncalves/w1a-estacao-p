@@ -147,103 +147,40 @@
       <H1 class="display-5 negrito cor-princ centro mb-5"> Modalidades de consórcio da Estação</H1>
 
           <div class="row mt-3">
-            <div class="col-12 col-sm-6 col-lg-3">
-              
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title centro f-terc branco">imóveis </h5>
-                      <p class="card-text f-20 negrito cinza-5 centro">
-                      <span class="mb-4">
-                        Sua casa, 
-                        como você
-                        planejou. <br>
-                      </span>  
-                      
-                      <span class="preto f-26 negrito mb-4">
-                        Crédito de<br>
-                        R$ 125.000,00<br>
-                      </span>
-                      <span class="cinza-5 negrito f-20">
-                        Parcelas a partir de<br>
-                          <span class="cor-terc">R$ 718,75  por mês</span>
-                      </span>
-                      </p>
-                    </div>
-                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/imoveis.jpg)"></div>
+            <div class="col-12 col-sm-12 col-lg-12">
+                <div class="owl-carousel owl-theme">
+                  <?php $seleciona = "SELECT * FROM consorcio WHERE status = 'publicado' ";
+                  $consulta = $conexao -> prepare($seleciona); $consulta -> execute();
+                  if(($consulta) AND ($consulta -> rowCount () != 0)){ while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){ ?>
+                  <div class="item m-auto">    
+                      <div class="col-12 col-sm-12 col-lg-12">                    
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title centro f-terc branco"><?= $registo['categoria'] ?> </h5>
+                            <p class="card-text f-20 negrito cinza-5 centro">
+                            <span class="mb-4">
+                              <?= $registo['frase'] ?> <br>
+                            </span>  
+                            
+                            <span class="preto f-26 negrito mb-4">
+                              Crédito de<br>
+                              <?= $registo['credito'] ?><br>
+                            </span>
+                            <span class="cinza-5 negrito f-20">
+                              Parcelas a partir de<br>
+                                <span class="cor-terc"><?= $registo['parcela'] ?>  por mês</span>
+                            </span>
+                            </p>
+                          </div>
+                          <div class="card-img-bottom" style = "background-image: url(<?= BASE ?>gm/img/consorcio/<?= $registo['img'] ?>)"></div>
+                        </div>
+                      </div>            
                   </div>
-
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-              
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title centro f-terc branco">Automóveis </h5>
-                      <p class="card-text f-20 negrito cinza-5 centro">
-                      <span class="mb-4">
-                        Acelera a conquista do seu sonho <br>
-                      </span>  
-                      
-                      <span class="preto f-26 negrito mb-4">
-                        Crédito de<br>
-                        R$ 125.000,00<br>
-                      </span>
-                      <span class="cinza-5 negrito f-20">
-                        Parcelas a partir de<br>
-                          <span class="cor-terc">R$ 718,75  por mês</span>
-                      </span>
-                      </p>
-                    </div>
-                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/carros.jpg)"></div>
-                  </div>
-
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-              
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title centro f-terc branco">Motocicletas </h5>
-                      <p class="card-text f-20 negrito cinza-5 centro">
-                      <span class="mb-4">
-                        Para suas aventuras do dia-a-dia <br>
-                      </span>  
-                      
-                      <span class="preto f-26 negrito mb-4">
-                        Crédito de<br>
-                        R$ 125.000,00<br>
-                      </span>
-                      <span class="cinza-5 negrito f-20">
-                        Parcelas a partir de<br>
-                          <span class="cor-terc">R$ 718,75  por mês</span>
-                      </span>
-                      </p>
-                    </div>
-                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/moto.jpg)"></div>
-                  </div>
-
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-              
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title centro f-terc branco">Bens Duráveis </h5>
-                      <p class="card-text f-20 negrito cinza-5 centro">
-                      <span class="mb-4">
-                        Para suas aventuras do dia-a-dia <br>
-                      </span>  
-                      
-                      <span class="preto f-26 negrito mb-4">
-                        Crédito de<br>
-                        R$ 125.000,00<br>
-                      </span>
-                      <span class="cinza-5 negrito f-20">
-                        Parcelas a partir de<br>
-                          <span class="cor-terc">R$ 718,75  por mês</span>
-                      </span>
-                      </p>
-                    </div>
-                    <div class="card-img-bottom" style = "background-image: url(<?= BASE_IMG ?>extra/cozinha.jpg)"></div>
-                  </div>
-
+                  <?php }} ?>
+                </div>                                
+                <div class = "owl-theme"style = "display: none !important;" >
+                  <div class="owl-controls" style = "display: none;"><div class="custom-nav owl-nav" style = "display: none;"></div></div>
+                </div>
             </div>
           </div>
 
@@ -340,7 +277,7 @@ empresa e muito mais!
 </section>
 
 <!-- parceiros ---------------------------------------->
-<section class="f-branco" id ="parceiros">
+<section class="f-branco parceiros" id ="parceiros">
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-12 col-lg-12 mb-3 pt-5 pb-5 centro">
@@ -349,12 +286,20 @@ empresa e muito mais!
         </H1>
                 
           <div class="row mt-5">
-            <div class="col-12 col-sm-6 ">
-                <img src="<?=  BASE_IMG ?>/parceiros/hs.png" alt="" width = "200px">
-            </div>
-            <div class="col-12 col-sm-6 auto">
-                <img src="<?=  BASE_IMG ?>/parceiros/canopus.png" alt="" width = "200px">
-            </div>
+              <div class="owl-carousel owl-theme">
+                  <?php $seleciona = "SELECT * FROM parceiros WHERE status = 'publicado' ";
+                  $consulta = $conexao -> prepare($seleciona); $consulta -> execute();
+                  if(($consulta) AND ($consulta -> rowCount () != 0)){ while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){?>
+                  <div class="item m-auto"> 
+                    <div class="col-12 col-sm-11 col-lg-11 pt-3 text-center centro">
+                        <img src="<?=  BASE ?>/gm/img/parceiros/<?= $registo['img'] ?>" alt="" width = "250px">
+                    </div>
+                  </div>
+                  <?php }} ?>
+              </div>                                
+              <div class = "owl-theme"style = "display: none !important;" >
+                <div class="owl-controls" style = "display: none;"><div class="custom-nav owl-nav" style = "display: none;"></div></div>
+              </div>
           </div>                      
 
       </div>
@@ -363,35 +308,31 @@ empresa e muito mais!
 </section>
 
 <!-- blog ---------------------------------------->
-<section class="f-branco pt-5 pb-5 blog" id ="Blog">
-  <div class="container pt-5 pb-5">
+<section class="f-branco pt-5 pb-0 blog" id ="Blog">
+  <div class="container pt-5 pb-0">
     <div class="row">
       <div class="col-12 col-sm-12 col-lg-12 mb-3 pt-5 pb-5">
         <H1 class="display-5 negrito cor-princ centro mb-4"> 
            Notícias e Novidades no BlogP
         </H1>
         <div class="row">
-          
-          <div class="col-12 col-sm-4 col-lg-4 mb-4">
-              <a style ="" class="card" >
-                <div class="card-img-top" style="background-image: url('<?= BASE_IMG ?>/blog/blog_1.png');"></div>
+        <?php $seleciona = "SELECT * FROM blog WHERE status = 'publicado' ORDER BY ordem DESC LIMIT 3 ";
+              $consulta = $conexao -> prepare($seleciona); $consulta -> execute();
+              if(($consulta) AND ($consulta -> rowCount () != 0)){ while($registo = $consulta -> fetch(PDO::FETCH_ASSOC)){?>
+            <div class="col-12 col-sm-4 col-lg-4 mb-4">
+              <a href ="<?= BASE ?>blog/post/<?= $registo['id'] ?>/<?= $registo['titulo'] ?>" class="card" >
+                <div class="card-img-top" style="background-image: url('<?= BASE ?>gm/img/post/<?= $registo['img'] ?>');"></div>
                 <div class="card-body">
                   <h5 class="card-title cor-terc negrito">
-                    Consórcio rural: saiba 
-                    por que contratar um!
+                    <?= $registo ['titulo'] ?>
                   </h5>
-                  <p class="card-text cinza-7">
-                  Uma excelente maneira de 
-                  investir na sua propriedade 
-                  rural de forma planejada e 
-                  com condições especiais!  
-                  </p>
                 </div>
-                </a>
+              </a>
             </div>
+        <?php }} ?>
 
 
-          <div class="col-12 col-sm-4 col-lg-4 mb-4">
+          <!-- <div class="col-12 col-sm-4 col-lg-4 mb-4">
               <a style ="" class="card" >
                 <div class="card-img-top" style="background-image: url('<?= BASE_IMG ?>/blog/blog_2.png');"></div>
                 <div class="card-body">
@@ -406,12 +347,12 @@ empresa e muito mais!
                   ainda economizando!
                   </p>
                 </div>
-                </a>
+              </a>
             </div>
 
 
           <div class="col-12 col-sm-4 col-lg-4 mb-4">
-              <a style ="" class="card" >
+              <a style ="" class="card">
                 <div class="card-img-top" style="background-image: url('<?= BASE_IMG ?>/blog/blog_3.png');"></div>
                 <div class="card-body">
                   <h5 class="card-title cor-terc negrito">
@@ -428,9 +369,14 @@ empresa e muito mais!
                 </a>
             </div>
 
-          </div>
+          </div> -->
 
       </div>
+        <div class="row mt-5">
+            <div class="col-12 col-sm-12 col-lg-4 m-auto centro ">
+              <a href="<?= BASE ?>blog" class ="botao-site botao-terc botao-medio">Ver mais</a>
+            </div>
+          </div>
     </div>
   </div>
 </section>
@@ -486,8 +432,11 @@ empresa e muito mais!
   <script src="<?= BASE_JS ?>bootstrap.min.js"></script>
   <script src="<?= BASE_JS ?>jquery.mask.min.js"></script>
   <script src="<?= BASE_JS ?>jquery.mask.min.js"></script>
+  <script src="<?= BASE ?>app/listaposts.js"></script>
   <script>
     jQuery(function () {
+
+      
 
       jQuery(window).scroll(function () {
         var height = $('header').outerHeight(true);
@@ -555,9 +504,9 @@ empresa e muito mais!
       });
 
 
-    $('#depoimento .owl-carousel').owlCarousel({
+    $('.consorcio .owl-carousel').owlCarousel({
           loop:true,
-          nav:true,
+          nav:false,
           navText:[
             '<img src="<?= BASE_IMG ?>extra/previous.png" alt="Seta esquerda" class="img-fluid" width="45">',
             '<img src="<?= BASE_IMG ?>extra/next.png" alt="Seta direita" class="img-fluid"  width="45">'
@@ -572,19 +521,49 @@ empresa e muito mais!
               },
 
               500:{
-                  items:1
+                  items:4
               },
 
               600:{
-                  items:1
+                  items:4
               },
 
               1000:{
-                  items:1
+                  items:4
               }
           }
       });
 
+      
+      $('.parceiros .owl-carousel').owlCarousel({
+          loop:true,
+          nav:false,
+          navText:[
+            '<img src="<?= BASE_IMG ?>extra/previous.png" alt="Seta esquerda" class="img-fluid" width="45">',
+            '<img src="<?= BASE_IMG ?>extra/next.png" alt="Seta direita" class="img-fluid"  width="45">'
+            ],
+          responsive:{
+              0:{
+                  items: 1
+              },
+
+              375:{
+                  items: 1
+              },
+
+              500:{
+                  items:3
+              },
+
+              600:{
+                  items:3
+              },
+
+              1000:{
+                  items:3
+              }
+          }
+      });
     });
   </script>
 

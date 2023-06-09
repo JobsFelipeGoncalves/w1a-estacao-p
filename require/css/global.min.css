@@ -200,7 +200,8 @@ header {
   background-repeat: no-repeat;
 }
 
-.consorcio .card {
+.consorcio .item .card {
+  width: 90%;
   border-radius: 0px;
   border-bottom-left-radius: 200px;
   border-bottom-right-radius: 200px;
@@ -222,15 +223,61 @@ header {
 }
 
 .consorcio .card .card-img-bottom {
-  width: 200px;
-  height: 200px;
-  border-radius: 100%;
+  width: 90% !important;
+  height: 225px;
+  border-radius: 150%;
   align-self: center;
   margin: 10px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+/* .consorcio .item .card {
+  border: 1px solid blue !important;
+} */
+
+/* .consorcio .owl-theme .custom-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  display: block;
+} */
+.consorcio .owl-theme .custom-nav .owl-next,
+.consorcio .owl-theme .custom-nav .owl-prev {
+  position: absolute;
+  height: auto;
+  color: inherit;
+  background: 0 0;
+  border: none;
+  z-index: 1;
+  min-height: 60vh;
+  margin-top: 30px;
+}
+.consorcio .owl-theme .custom-nav button:focus {
+  outline: thin dotted;
+  outline: 0 auto -webkit-focus-ring-color;
+  outline-offset: 0;
+}
+.consorcio .owl-theme .custom-nav .owl-prev {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  left: -100px;
+}
+.consorcio .owl-theme .custom-nav .owl-next {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  right: -100px;
+}
+
 /* motivos */
 .motivos .itens-motivos {
   background: url("../img/extra/fundo_motivos.png");
@@ -273,7 +320,7 @@ header {
 
 .blog .card:hover .card-img-top {
   transition: all 0.2s linear;
-  background-size: 105%;
+  background-size: cover;
 }
 
 .blog .card:hover .card-title {
