@@ -404,7 +404,6 @@
     }#if da consulta
       
    }#if principal
-}
 
 ?>
             </div>

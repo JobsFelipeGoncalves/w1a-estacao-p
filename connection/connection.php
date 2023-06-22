@@ -1,14 +1,14 @@
 <?php
-    $host = "localhost";
-    $usuario = "root";
-    $senha = "";
-    $banco = "estacao_p";
+    $host = "mysql.estacaop.com.br";
+    $usuario = "estacaop";
+    $senha = "EP102030";
+    $banco = "estacaop";
     $porta = "";
-
-    // $host = "mysql.ouroverdeguindastes.com.br";
-    // $usuario = "ouroverdeguind";
-    // $senha = "Ov103456";
-    // $banco = "ouroverdeguind";
+    
+    // $host = "localhost";
+    // $usuario = "root";
+    // $senha = "";
+    // $banco = "estacao_p";
     // $porta = "";
     
     $conexao = new PDO("mysql:host=$host;dbname=".$banco, $usuario, $senha);

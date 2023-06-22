@@ -394,7 +394,7 @@ empresa e muito mais!
         </H1>
       </div>
       <div class="col-12 col-sm-6 col-lg-6 mt-5 mb-3 p-5">
-        <form>
+        <form id="formularioHome">
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="nome" placeholder="nome" name="nome">
               <label for="nome">Seu nome completo</label>
@@ -410,10 +410,13 @@ empresa e muito mais!
             </div>
 
             <div class="form-floating">
-              <textarea class="form-control" placeholder="mensagam" id="mensagam" name="mensagam"></textarea>
-              <label for="mensagam">Sua mensagam</label>
+              <textarea class="form-control" placeholder="mensagem" id="mensagem" name="mensagem"></textarea>
+              <label for="mensagem">Sua mensagam</label>
             </div>
+            <input type="hidden" name="img_url" value = "<?= BASE_IMG ?>">
+            <input type="hidden" name="base_url" value = "<?= BASE ?>">
             <button type="submit" class="botao-site botao-terc mt-4">Enviar</button>
+            <div id="respostas" class = "mt-4" ></div>
         </form>
       </div>
     </div>
@@ -459,11 +462,11 @@ empresa e muito mais!
            type: 'POST',
            data: $('#formularioHome').serialize(),
            success: function(data){
-                $('#repostas').html(data);
-                $("#repostas").show('fast');
+                $('#respostas').html(data);
+                $("#respostas").show('fast');
               setTimeout(function(){
-                $('#repostas').html(data);
-                $("#repostas").hide('show');
+                $('#respostas').html(data);
+                $("#respostas").hide('show');
               }, 10000);
                //$('#repostas').html(data); 3000
            }

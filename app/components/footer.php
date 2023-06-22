@@ -9,7 +9,7 @@
           <div class="col-12 col-sm-4 col-lg-4 mb-3">            
             <a class="navbar-brand logoRodape" href="#">
               <img src="<?= BASE_IMG ?>marcas/estacao_p.png" 
-                   class = "img-fluid" style="200px"
+                   class = "img-fluid"
               />
             </a>
           </div>
@@ -80,7 +80,7 @@
     </footer>
 
     <div class="contato-fixo para-pc">
-      <a href="whatsapp.com" class="m-2">
+      <a target="_blank" ="https://api.whatsapp.com/send/?phone=5567999814321&text&type=phone_number&app_absent=0" class="m-2">
         <img src="<?= BASE_IMG ?>extra/fale_whatsapp.png" alt="" width="230px" title = "Conversar">
       </a>
     </div>

@@ -13,8 +13,8 @@
 
   $nome = $_POST['nome'];
   $email_cliente = $_POST['email'];
-  $telefone =  $_POST['fone'];
-  $msg =  $_POST['msg'];
+  $telefone =  $_POST['telefone'];
+  $msg =  $_POST['mensagem'];
   $link_logo = $_POST['img_url'];
   $link_url = $_POST['base_url'];
 
@@ -37,15 +37,15 @@
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.uni5.net';                     //Set the SMTP server to send through  smtp.fatcred.com.br
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication -- true
-        $mail->Username   = 'relacionamento@fatcred.com.br';                     //SMTP username
-        $mail->Password   = 'Relfc!101020';                               //SMTP password
+        $mail->Username   = 'relacionamento@estacaop.com.br';                     //SMTP username
+        $mail->Password   = 'e!EP102030';                               //SMTP password
         // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         $mail->SMTPSecure = 'ssl';    // SSL REQUERIDO pelo GMail ssl tls
 
         //Recipients
-        $mail->setFrom('relacionamento@fatcred.com.br', 'Contato - Fatcred');
-        $mail->addAddress('relacionamento@fatcred.com.br', 'Formulário do site');     //Add a recipient
+        $mail->setFrom('relacionamento@estacaop.com.br', 'Contato - Estação P');
+        $mail->addAddress('relacionamento@estacaop.com.br', 'Formulário do site');     //Add a recipient
         // $mail->addAddress('ellen@example.com');               //Name is optional
 
 
@@ -54,7 +54,7 @@
         $mail->Subject = $nome.' solicitou um contato';
         $mail->Body    = '
                           <div style = "padding: 30px; margin: 10px;">
-                               <img src = "'. $link_logo .'marcas/logo_c.png" style = "width: 150px;">
+                               <img src = "'. $link_logo .'marcas/estacao_p.png" style = "width: 150px;">
                                <hr>
                                <h3>Você recebeu um novo contato!</h3>
                                <p style = "padding: 20px; margin: 10px; background-color: #fafafa; ">
@@ -103,7 +103,7 @@
 
         //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         echo '
-             <div class = "respostas-retorno centro alert alert-warning"> Não foi possível enviar o seu contato. Tente mais tarde ou ligue para nós!</div>
+             <div class = "respostas-retorno centro alert alert-danger"> Não foi possível enviar o seu contato. Tente mais tarde ou ligue para nós!</div>
         ';
 
     }
@@ -111,7 +111,7 @@
    }else{
 
      echo '
-          <div class = "respostas-retorno centro alert alert-warning"> Preencha todos os campos.</div>
+          <div class = "respostas-retorno centro alert alert-danger"> Preencha todos os campos.</div>
      ';
 
    }

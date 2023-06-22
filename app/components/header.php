@@ -25,7 +25,7 @@
                       <a href="instagram.com"  target="_blank" class="m-2" title = "Ir para o Instagram">
                         <img src="<?= BASE_IMG ?>extra/instagram_2.png" alt="" width="30px">
                       </a>
-                      <a href="whatsapp.com" class="m-2">
+                      <a target="_blank" href="https://api.whatsapp.com/send/?phone=5567999814321&text&type=phone_number&app_absent=0" class="m-2">
                         <img src="<?= BASE_IMG ?>extra/fale_whatsapp.png" alt="" width="230px" title = "Conversar">
                       </a>
                     </div>
