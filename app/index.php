@@ -134,6 +134,10 @@
         normativos oficiais e dos contratos firmados
         </p>
       </div>
+
+      <div class="col-12 col-sm-12 col-lg-1 m-auto centro">
+        <img src="<?= BASE_IMG ?>extra/sobre_min_2.png" alt="" class="img-fluid para-mob">
+      </div>
     </div>
   </div>
 </section>
@@ -206,7 +210,7 @@
         </H1>
 
         <div class="row mt-5 centro itens-motivos">
-          <div class="col col-sm-6 col-lg-4 p-4 mb-1">
+          <div class="col-12 col-sm-6 col-lg-4 p-4 mb-1">
                 <img src="<?=  BASE_IMG ?>extra/economize_mais.png" alt="" class="mb-3" style = "width: 100px">
                 <h5 class="mb-3 cor-princ">
                 Economize Mais
@@ -222,7 +226,7 @@ o custo administrativo!
                 </p>
           </div>
 
-          <div class="col col-sm-6 col-lg-4 p-4 mb-1">
+          <div class="col-12 col-sm-6 col-lg-4 p-4 mb-1">
                 <img src="<?=  BASE_IMG ?>extra/compre_avista.png" alt="" class="mb-3" style = "width: 100px">
                 <h5 class="mb-3 cor-princ">
                 Compre à Vista
@@ -238,7 +242,7 @@ pagamento imediato.
                 </p>
           </div>
 
-          <div class="col col-sm-6 col-lg-4 p-4 mb-1">
+          <div class="col-12 col-sm-6 col-lg-4 p-4 mb-1">
                 <img src="<?=  BASE_IMG ?>extra/acelere_seu_credito.png" alt="" class="mb-3" style = "width: 100px">
                 <h5 class="mb-3 cor-princ">
                 Acelere seu Crédito
@@ -254,7 +258,7 @@ a sorte chegar até você!
                 </p>
           </div>
 
-          <div class="col col-sm-12 col-lg-5 p-4  m-auto mb-1 ">
+          <div class="col-12 col-sm-12 col-lg-5 p-4  m-auto mb-1 ">
                 <img src="<?=  BASE_IMG ?>extra/realize_seu_sonho.png" alt="" class="mb-3" style = "width: 100px">
                 <h5 class="mb-3 cor-princ">
                 Realize seu Sonho
@@ -547,11 +551,11 @@ empresa e muito mais!
             ],
           responsive:{
               0:{
-                  items: 1
+                  items: 2.5
               },
 
               375:{
-                  items: 1
+                  items: 2.5
               },
 
               500:{

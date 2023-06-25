@@ -223,11 +223,12 @@ header {
 }
 
 .consorcio .card .card-img-bottom {
-  width: 90% !important;
+  width: 225px !important;
   height: 225px;
   border-radius: 150%;
   align-self: center;
-  margin: 10px;
+  margin: auto;
+  margin-top: 10px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -284,6 +285,7 @@ header {
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
+  background-color: #fff;
 }
 
 .motivos .itens-motivos p {

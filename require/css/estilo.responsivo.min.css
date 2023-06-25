@@ -78,6 +78,14 @@
     background-size: cover !important;
     background-position: right;
   }
+
+  .sobre {
+    background: none;
+  }
+
+  .motivos .itens-motivos {
+    background-image: none !important;
+  }
 }
 
 /*    411 px | mobile  */
@@ -104,6 +112,14 @@
   #apresentacao .img-destaque {
     background-size: cover !important;
     background-position: right;
+  }
+
+  .sobre {
+    background: none;
+  }
+
+  .motivos .itens-motivos {
+    background-image: none !important;
   }
 }
 
@@ -133,6 +149,13 @@
     background-size: cover !important;
     background-position: right;
   }
+
+  .sobre {
+    background: none;
+  }
+  .motivos .itens-motivos {
+    background-image: none !important;
+  }
 }
 
 /*    360 px | mobile     **/
@@ -160,6 +183,13 @@
   #apresentacao .img-destaque {
     background-size: cover !important;
     background-position: right;
+  }
+
+  .sobre {
+    background: none;
+  }
+  .motivos .itens-motivos {
+    background-image: none !important;
   }
 }
 
@@ -189,6 +219,12 @@
     background-size: cover !important;
     background-position: right;
   }
+  .sobre {
+    background: none;
+  }
+  .motivos .itens-motivos {
+    background-image: none !important;
+  }
 }
 
 /*   280 px | mobile Iphone Plus  **/
@@ -202,5 +238,11 @@
   .navbar .navbar-brand img {
     margin: 5px;
     width: 80px;
+  }
+  .sobre {
+    background: none;
+  }
+  .motivos .itens-motivos {
+    background-image: none !important;
   }
 }
